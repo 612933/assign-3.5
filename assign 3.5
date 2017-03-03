@@ -1,0 +1,19 @@
+Question 1)high availability of name node:
+T1.he cluster as a whole is unavailable until the NameNode is either restarted or brought up on a new host.
+2.The standard configuration  can reduce the total availability of an HDFS cluster in two main ways.
+if the event is  unplanned such as a host crash, the cluster is unavailable until an operator restarts the NameNode.
+Planned maintenance events such as software or hardware upgrades on the NameNode machine can result in periods of cluster downtime.
+HDFS HA addresses the above problems by providing the option of running two NameNodes in the same cluster, in an active/passive configuration. 
+thease are active name node and stand by name naode.
+ Unlike the Secondary NameNode, the standby NameNode is  allows a fast automatic failover to a new NameNode in the case that a host crashes, or a graceful administrator-initiated failover for the purpose of planned maintenance. 
+ Question 2)
+ Checkpointing:Checkpointing is a technique to add fault tolerance into computing systems. The snapshot of the applications state is saved so that it can be restate in case of failure,so it is important for long runing applications.
+ in distributed computing without checkpoint longrunning application will start from the beginning.
+ in case of failure,it does not need to start from scratch but  it will read the latest state ("the checkpoint") from the stable storage and execute from that.
+ There are two main approaches for checkpointing in such systems: coordinated checkpointing and uncoordinated checkpointing
+  In the coordinated checkpointing approach, processes must ensure that their checkpoints are consistent. This is usually achieved by some kind of two-phase commit protocol algorithm. 
+  In uncoordinated checkpointing, each process checkpoints its own state independently. It must be stressed that simply forcing processes to checkpoint their state at fixed time intervals is not sufficient to ensure global consistency. 
+
+Question 3)Hdfs federation: it helps in  improving the existing HDFS architecture through a clear separation of namespace and storage, enabling generic block storage layer.
+It also enables support for multiple namespaces in the cluster to improve scalability and isolation. it opens up the architecture, expanding the applicability of HDFS cluster to new implementations and use cases. current HDFS architecture has two layers
+1.Namespace 2.Block Storage block storage consists of Block Management and Physical Storage
